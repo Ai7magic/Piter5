@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы о Мебели</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Отзывы о Мебели</h1>
+    </header>
+    <main>
+        <section class="review-form">
+            <h2>Оставьте свой отзыв</h2>
+            <form id="form">
+                <input type="text" id="name" placeholder="Ваше имя" required>
+                <textarea id="review" placeholder="Ваш отзыв" required></textarea>
+                <button type="submit">Отправить отзыв</button>
+            </form>
+        </section>
+
+        <section class="review-container">
+            <h2>Отзывы</h2>
+            <div id="reviews">
+                <!-- Отзывы будут добавлены сюда с помощью JavaScript -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2023 Мебельный Магазин. Все права защищены.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.review-form {
+    margin-bottom: 40px;
+}
+
+.review-form h2 {
+    margin-top: 0;
+}
+
+.review-form input, 
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.review-form button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.review-form button:hover {
+    background: #0056b3;
+}
+
+.review-container {
+    margin-top: 20px;
+}
+
+.review {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.review h3 {
+    margin: 0 0 10px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #007BFF;
+    color: white;
+}
+</style>
+
+<script>
+
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Открытие стандартного поведения формы
+    
+    const name = document.getElementById('name').value;
+    const review = document.getElementById('review').value;
+
+    if (name && review) {
+        const reviewsContainer = document.getElementById('reviews');
+
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('review');
+
+        reviewElement.innerHTML = <br/> &lt;h3&gt;${name}&lt;/h3&gt;<br/> &lt;p&gt;${review}&lt;/p&gt;<br/> ;
+
+        reviewsContainer.appendChild(reviewElement);
+
+        // Очистка формы
+        document.getElementById('form').reset();
+    }
+});
+</script>
+
